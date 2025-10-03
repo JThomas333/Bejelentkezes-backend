@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    height: 100vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.container {
+    width: 350px;
+    padding: 30px 40px;
+    background: #ddd7d7;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container h1 {
+    margin-bottom: 15px;
+    color:black;
+}
+
+.container label {
+    margin: 10px 0 5px;
+    font-size: 15px;
+    color: black;
+    text-align: left;
+    display: block;
+}
+
+.container input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid grey;
+    transition: all 0.5s ease;
+    outline: none;
+}
+
+.container input:focus {
+    border-color: blue;
+    box-shadow: 0 0 5px rgb(3, 3, 145);
+}
+
+
+.container button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/*  */
+
+.container a {
+    color: blue;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container a:hover {
+    text-decoration: underline;
+}
