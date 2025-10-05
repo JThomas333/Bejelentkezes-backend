@@ -10,7 +10,7 @@ password STRING
 
 export const getUsers = () => db.prepare('SELECT * FROM users').all()
 export const getUserById = (id) => db.prepare('SELECT * FROM users WHERE id = ?').get(id)
-export const saveUser = (email, password) => db.prepare('INSERT INTO users (email, password) VALUE (?, ?)').run(email, password)
+export const saveUser = (email, password) => db.prepare('INSERT INTO users (email, password) VALUES (?, ?)').run(email, password)
 export const updateUser = (id, email, password) => db.prepare('UPDATE users SET email = ?, password = ?, WHERE id = ?').run(email, password, id)
-export const deleteUser = (id) => db.prepare('DELETE FROM users WHRERE id = ?').run(id)
-export const getUserByEmail = (email) => db.prepare('SELECT * FROM user WHERE email = ?').get(email)
+export const deleteUser = (id) => db.prepare('DELETE FROM users WHERE id = ?').run(id)
+export const getUserByEmail = (email) => db.prepare('SELECT * FROM users WHERE email = ?').get(email)
