@@ -1,55 +1,59 @@
-function validEmail(email) {
-    let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
+
+function validEmail(cim) {
+    const minta = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return minta.test(cim);
 }
 
-function belep(){
-    let email = document.getElementById('email').value;
-    let pwd = document.getElementById('pwd').value;
+function belep() {
+    const email = document.getElementById("email").value.trim();
+    const jelszo = document.getElementById("pwd").value;
 
-    if (!validEmail(email)) {
-        alert("Hibás e-mail!");
+    if (!validEmail(email)){ 
+        alert("Hibás e-mail!"); 
         return;
     }
-    if (pwd.trim() == "") {
-        alert("A jelszó nem lehet üres!");
-        return;
+    if (jelszo.trim() == "") { 
+        alert("A jelszó megadása kötelező!"); 
+        return; 
     }
 
-    let pwdcheck = localStorage.getItem(email);
-    if (pwdcheck == null || pwdcheck == "" || pwdcheck != pwd) {
-        alert("Hibás jelszó!");
-        return;
+    const mentett = localStorage.getItem(email);
+    if (!mentett) { 
+        alert("Nincs ilyen felhasználó!"); 
+        return; 
     }
-    
+    if (mentett != jelszo) { 
+        alert("Helytelen jelszó!"); 
+        return; 
+    }
 
-    alert("Sikeres bejelentkezés!");
-    localStorage.setItem("loggedInUser", email);
+    localStorage.setItem("felhsznalo", email);
+    alert("Sikeres bejelentkezés, üdv " + email + "!");
 }
 
+function regist() {
+    const email = document.getElementById("email").value.trim();
+    const pw1 = document.getElementById("pwd1").value;
+    const pw2 = document.getElementById("pwd2").value;
 
-function regist(){
-    let email = document.getElementById('email').value;
-    let pwd1 = document.getElementById('pwd1').value;
-    let pwd2 = document.getElementById('pwd2').value;
-    if (!validEmail(email)) {
+    if (!validEmail(email)) { 
         alert("Hibás e-mail!");
-        return;
-    }
-    if (pwd1 == "" || pwd2 == "") {
-        alert("A jelszó mező nem lehet üres!");
-        return;
-    }
-    if (pwd1 != pwd2) {
-        alert("A két jelszó eltér!");
-        return;
+         return; 
+        }
+    if (pw1 == "" || pw2 == "") { 
+        alert("A jelszómezők nem lehetnek üresek!");
+         return; 
+        }
+    if (pw1 != pw2) {
+         alert("A két jelszó eltér!");
+          return; 
+        }
+    if (localStorage.getItem(email)) { 
+        alert("Az email foglalt!"); 
+        return; 
     }
 
-    if (localStorage.getItem(email)) {
-        alert("Az email foglalt!");
-        return;
-    }
-    localStorage.setItem(email, pwd1);
-    alert("Sikeres regisztráció!");
+    localStorage.setItem(email, pw1);
+    alert("Sikeres regisztráció, " + email + "!");
     window.location.href = "bejelentkezes.html";
 }

@@ -8,18 +8,14 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Bejelentkés</h1>
-        <h2>E-mail cím</h2><br>
-        <input type="email" id="email" placeholder="Add meg az email címet!"><br>
+    <form>
+        <h1>Bejelentkezés</h1>
 
-        <h2>Jelszó</h2><br>
-        <input type="pwd" id="pwd" placeholder="Add meg a jelszót!"><br>
+        <input type="email" id="email" placeholder="E-mail címed">
+        <input type="password" id="pwd" placeholder="Jelszavad">
 
-        <button id="belepes" onclick="belep()">Belépés!</button><br>
-        
-        <h2>Új fiók</h2>
-        <a href="regisztracio.html">Regisztráció!</a>
-    </div>
+        <button type="button" onclick="belep()">Belépés</button>
+        <a href="regisztracio.html">Nincs fiókod? Regisztrálj!</a>
+    </form>
 </body>
 </html>
