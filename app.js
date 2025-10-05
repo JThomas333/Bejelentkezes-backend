@@ -43,9 +43,9 @@ app.post('/login', (req,res) =>{
         return res.status(400).json({message: "Invalid data"})
     }
     const user = db.getUserByEmail(email)
-    // if (!user) {
-    //      return res.status(404).json({message: "User not found"})
-    // }
+    if (!user) {
+         return res.status(404).json({message: "User not found"})
+    }
     if (!bcrypt.compareSync(password, user.password)) {
         return res.status(403).json({message: "invalid credention"})
     }
